@@ -35,6 +35,7 @@ Why build a PWA? Progressive Web Apps combine the best of web and mobile apps. U
 - @ducanh2912/next-pwa
 
 ## File Explorer
+```
 city-guide/
 ├── app/                    # Next.js application directory
 ├── shared/                 # Shared business logic and data layer
@@ -42,6 +43,7 @@ city-guide/
 ├── package.json
 ├── tsconfig.json
 └── next.config.ts
+```
 
 ### /app - Application Layer
 The app directory contains all Next.js application code, including pages, layouts, and UI components.
