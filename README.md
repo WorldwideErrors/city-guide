@@ -35,7 +35,78 @@ Why build a PWA? Progressive Web Apps combine the best of web and mobile apps. U
 - @ducanh2912/next-pwa
 
 ## File Explorer
+city-guide/
+├── app/                    # Next.js application directory
+├── shared/                 # Shared business logic and data layer
+├── public/                 # Static assets
+├── package.json
+├── tsconfig.json
+└── next.config.ts
 
+### /app - Application Layer
+The app directory contains all Next.js application code, including pages, layouts, and UI components.
+Key responsibilities:
+
+- Page routing and layouts
+- UI rendering
+- User interaction handling
+- Component composition
+
+### /app/components - Reusable UI Components
+This directory houses reusable React components that promote code maintainability and prevent duplication.
+Component examples:
+
+HeaderSection - Main header component used across pages
+
+Accepts optional HeaderButtons as children
+Used on homepage (with buttons) and city pages (without buttons)
+
+- HeaderButtons - Navigation buttons for the homepage
+- TodoCard - Reusable card component for displaying to-do items
+- TransportSection - Component for displaying transportation information
+- FactItems - Component for rendering city facts
+
+### /shared - Shared Business Logic
+The shared directory contains code that can be reused across the entire project or even in other projects.
+Key responsibilities:
+
+- Domain models and interfaces
+- Data repositories
+- Business logic
+- Type definitions
+
+### /shared/domain - Domain Layer
+Contains the core business entities and type definitions that represent the application's domain model.
+
+city.ts - The City interface (blueprint)
+
+Defines the structure and properties a city must have
+Ensures type safety across the application
+
+Purpose:
+- Defines the "shape" of data
+- Provides TypeScript interfaces for type checking
+- Documents what properties entities should have
+- Serves as contracts between different layers
+
+### /shared/infrastructure - Infrastructure Layer
+Contains the data access logic and repositories that interact with data sources.
+
+cities.ts - The data source
+- Contains all city data
+- Structured according to the City interface from domain layer
+- Acts as the "database" for this tutorial project
+
+city.repository.ts - The Repository service
+- Encapsulates data access logic
+- Provides clean API for querying cities
+- Separates data access from business logic
+
+Key benefits:
+- Separation of concerns: Data access is isolated from UI components
+- Read-only access: Application can query but not modify data
+- Abstraction: Components don't need to know where data comes from
+- Future-proof: Easy to swap data source (API, database, etc.) without changing components
 
 ## Installation
 ```

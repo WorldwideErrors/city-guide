@@ -3,7 +3,7 @@ import Link from "next/link";
 import TransportSection from "../components/TransportSection";
 import ToDoCard from "../components/ToDoCard";
 import HeaderSection from "../components/HeaderSection";
-import { getCityByName } from "@/shared/domain/city.repository";
+import { getCityByName } from "@/shared/infrastructure/city.repository";
 import { notFound } from "next/navigation";
 import FactItems from "../components/FactItems";
 
