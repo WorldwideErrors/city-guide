@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# City Guide Web App
+For Front-End Development we got a guide to build our own PWA (Progressive Web App). 
+The base of this application was a city guide app about Eindhoven and Tilburg.
 
-## Getting Started
+To make it more of my own work I made it more efficient by adding loose components and made it more future-proof.
+I did this by adding a few files. 
 
-First, run the development server:
+## Infrastructure and Domain (Services)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+First I added city.ts. City.ts is the interface of a city, basically a blueprint about what a city needs for existing.
+cities.ts is the file where all the cities are coming from, it's basically our data source. This one is existing of city.ts "components". These are all made in the same way. 
+
+The city.repository.ts is responsible for their own tasks, its basically a kind of service level where it is making the "queries". I can in this case get the city by their name. It gives the information from cities to the application without making the application be able to do anything else with this data. It's not able to manipulate or delete the data.
+
+## Components
+Because it is a tutorial where I only want to show some of the basics, to make sure I am able to use it in my own projects, I made some loose components, but did not build the whole application in components. In a real project I would have rebuild the whole application and made the whole page out of components. 
+
+In this case we have the HeaderSection and the HeaderButtons. The headerbuttons are used, as nullable, in the HeaderSection. This is because HeaderSection is used twice in the city pages, but also in the homepage. The only difference is that in the homepage there are two buttons added. To make the code as maintainable as possible I did reuse the code and did not use code duplication.
+
+We also have the todo card, transport section and factitems. These are also components that are used multiple times in the code, which made me want to move it to a component. 
+
+## Benefits of a PWA
+Why build a PWA? Progressive Web Apps combine the best of web and mobile apps. Users can install your site like a native app, use it offline, and get a fast, app-like experience - all without app store approval or downloads.
+
+- Installable app that users can add to their home screen
+- Offline functionality so your app works without internet
+- Fast loading with smart caching strategies
+- Native app feel with custom icons and splash screens
+- Modern UI built with Tailwind CSS v4
+
+## Tech Stack
+- React + Typescript
+- Next.JS
+- Tailwindcss
+- @ducanh2912/next-pwa
+
+## File Explorer
+
+
+## Installation
 ```
+git clone https://github.com/WorldwideErrors/city-guide
+cd my-city-guide
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm run dev
+```
+### Or run it as PWA
+If you want to run it as a PWA you can build it and start it after doing npm install.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+npm run build
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm start
+```
